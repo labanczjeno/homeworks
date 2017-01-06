@@ -9,14 +9,13 @@ public class NameValidator implements ConstraintValidator<Name, UserEntity>  {
 
     @Override
     public void initialize(Name a) {
-        //To change body of generated methods, choose Tools | Templates.
+        //it's empty becuase we don't have to initialize anything
     }
 
     @Override
-    public boolean isValid(UserEntity t, ConstraintValidatorContext cvc) {
-        if(t.getFirstname()!=null && t.getLastname()!=null) {
-             return true;
-        }
-        return null == t.getFirstname() && null == t.getLastname();
+    public boolean isValid(UserEntity user, ConstraintValidatorContext cvc) {
+        boolean bothNameFilled=user.getFirstname()!=null && user.getLastname()!=null;
+        boolean nothingFilled=user.getFirstname()==null && user.getLastname()==null;
+        return bothNameFilled||nothingFilled;
     }
 }

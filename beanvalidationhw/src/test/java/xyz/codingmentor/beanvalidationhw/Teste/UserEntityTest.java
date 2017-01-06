@@ -26,7 +26,7 @@ public class UserEntityTest {
     private Date birthDay;
     private Date regDay= redDayCalendar.getTime();
     private Date modDay= regDay;
-    private UserEntity t = new UserEntity.Builder()
+    private UserEntity user = new UserEntity.Builder()
                 .username("labanczjeno")
                 .password("Xyz111")
                 .address("1041 Bp")
@@ -56,7 +56,7 @@ public class UserEntityTest {
         redDayCalendar.add(Calendar.SECOND, -1);
         regDay = redDayCalendar.getTime();
         modDay = regDay;
-        t = new UserEntity.Builder()
+        user = new UserEntity.Builder()
                 .username("labanczjeno")
                 .password("Xyz111")
                 .address("1041 Bp")
@@ -72,14 +72,14 @@ public class UserEntityTest {
     
     @Test
     public void goodUser() {
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(0, violations.size());
     }
     
     @Test
     public void badUser() {
-        t.setUsername("xyz");
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        user.setUsername("xyz");
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(1, violations.size());
         Assert.assertEquals("xyz", violations.iterator().next().getInvalidValue());
     }
@@ -88,8 +88,8 @@ public class UserEntityTest {
     public void goodRegDate() {
         Calendar goodOne = new GregorianCalendar(2015, 2, 10);
         Date validRegistrationDate = goodOne.getTime();
-        t.setRegistrationDate(validRegistrationDate);
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        user.setRegistrationDate(validRegistrationDate);
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(0, violations.size());
     }
     
@@ -98,16 +98,17 @@ public class UserEntityTest {
         Calendar badOne = new GregorianCalendar();
         badOne.add(Calendar.DAY_OF_MONTH, 1);
         Date badDate = badOne.getTime();
-        t.setRegistrationDate(badDate);
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        user.setRegistrationDate(badDate);
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals(badDate, violations.iterator().next().getInvalidValue());
     }
     
     
     @Test
     public void goodBirthday() {
-        t.setDateOfBirth(null);
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        user.setDateOfBirth(null);
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(0, violations.size());
     }
     
@@ -116,80 +117,84 @@ public class UserEntityTest {
         birthDayCalendar = new GregorianCalendar();
         birthDayCalendar.add(Calendar.MONTH, 3);
         birthDay = birthDayCalendar.getTime();
-        t.setDateOfBirth(birthDay);
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        user.setDateOfBirth(birthDay);
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("{Birthday.message}", violations.iterator().next().getMessageTemplate());
     }
     
     @Test
     public void goodPword() {
-        t.setPassword("Xyz123+");
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        user.setPassword("Xyz123+");
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(0, violations.size());
     }
     
     @Test
     public void badPword() {
-        t.setPassword("xyz123");
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        user.setPassword("xyz123");
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(1, violations.size());
         Assert.assertEquals("xyz123", violations.iterator().next().getInvalidValue());
     }
     
     @Test
     public void goodName() {
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(0, violations.size());        
     }
     
     @Test
     public void badName() {
-        t.setLastname("xyz");
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        user.setLastname("xyz");
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("{Name.message}", violations.iterator().next().getMessageTemplate());
     }
     
     @Test
     public void goodAddress() {
-        t.setAddress(null);
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        user.setAddress(null);
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(0, violations.size());      
     }
     
     @Test
     public void badAddress() {
-        t.setAddress("xyz");
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
-        Assert.assertEquals(1, violations.size());   
+        user.setAddress("xyz");
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
+        Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("xyz", violations.iterator().next().getInvalidValue()); 
     }
     
     @Test
     public void goodPhone() {
-        t.setPhone("+36303214356");
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        user.setPhone("+36303214356");
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(0, violations.size());
     }
     
     @Test
     public void badPhone() {
-        t.setPhone("+363021222111111");
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
-        Assert.assertEquals(1, violations.size());  
+        user.setPhone("+363021222111111");
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
+        Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("+363021222111111", violations.iterator().next().getInvalidValue());
+                
     }
     
     @Test
     public void goodEmail() {
-        t.setEmail("labanczjeno@gmail.hu");
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
+        user.setEmail("labanczjeno@gmail.hu");
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
         Assert.assertEquals(0, violations.size());
     }
     
     @Test
     public void badEmail() {
-        t.setEmail("asdqwe.gmail.hu");
-        Set<ConstraintViolation<UserEntity>> violations = validator.validate(t);
-        Assert.assertEquals(1, violations.size());   
+        user.setEmail("asdqwe.gmail.hu");
+        Set<ConstraintViolation<UserEntity>> violations = validator.validate(user);
+        Assert.assertEquals(1, violations.size());
+        Assert.assertEquals("asdqwe.gmail.hu", violations.iterator().next().getInvalidValue());
     }
-    
-
 }

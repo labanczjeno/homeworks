@@ -4,20 +4,20 @@ package xyz.codingmentor.beanvalidationhw.constraint;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import xyz.codingmentor.beanvalidationhw.beans.Color;
-import xyz.codingmentor.beanvalidationhw.beans.DeviceEntity;
+import xyz.codingmentor.beanvalidationhw.beans.Device;
 import xyz.codingmentor.beanvalidationhw.beans.Manufacturer;
 
-public class AppleValidator implements ConstraintValidator<Apple, DeviceEntity> {
+public class AppleValidator implements ConstraintValidator<Apple, Device> {
 
     @Override
     public void initialize(Apple a) {
-        //To change body of generated methods, choose Tools | Templates.
+        //it's empty becuase we don't have to initialize anything
     }
 
     @Override
-    public boolean isValid(DeviceEntity t, ConstraintValidatorContext cvc) {
-         if (t.getManufacturer()==Manufacturer.APPLE) {
-             return t.getColor()==Color.BLACK || t.getColor()==Color.WHITE;
+    public boolean isValid(Device device, ConstraintValidatorContext cvc) {
+         if (device.getManufacturer()==Manufacturer.APPLE) {
+             return device.getColor()==Color.BLACK || device.getColor()==Color.WHITE;
          }
          return true;
     }

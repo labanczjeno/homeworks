@@ -7,7 +7,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import xyz.codingmentor.beanvalidationhw.constraint.Birthday;
+import xyz.codingmentor.beanvalidationhw.constraint.Name;
 
+@Name
+@Birthday
 public class UserEntity {
     
     @NotNull
@@ -55,12 +59,6 @@ public class UserEntity {
         this.admin = builder.admin;
     }
     
-    @Override
-    public String toString() {
-        return "UserEntity{" + "username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname + ", address=" + address + ", phone=" + phone + ", email=" + email + ", gender=" + gender + ", registrationDate=" + registrationDate + ", lastModifiedDate=" + lastModifiedDate + ", dateOfBirth=" + dateOfBirth + ", admin=" + admin + '}';
-    }
-
-
     public String getUsername() {
         return username;
     }
@@ -305,4 +303,8 @@ public class UserEntity {
         return true;
     }
     
+        @Override
+    public String toString() {
+        return "UserEntity{" + "username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname + ", address=" + address + ", phone=" + phone + ", email=" + email + ", gender=" + gender + ", registrationDate=" + registrationDate + ", lastModifiedDate=" + lastModifiedDate + ", dateOfBirth=" + dateOfBirth + ", admin=" + admin + '}';
+    }
 }

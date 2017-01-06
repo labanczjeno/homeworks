@@ -9,14 +9,14 @@ public class BirthdayValidator implements ConstraintValidator<Birthday, UserEnti
 
     @Override
     public void initialize(Birthday a) {
-        //To change body of generated methods, choose Tools | Templates.
+        //it's empty becuase we don't have to initialize anything
     }
 
     @Override
-    public boolean isValid(UserEntity t, ConstraintValidatorContext cvc) {
-        if(t.getDateOfBirth()==null) {
+    public boolean isValid(UserEntity userentity, ConstraintValidatorContext cvc) {
+        if(userentity.getDateOfBirth()==null) {
               return true;
         }
-        return t.getDateOfBirth().before(t.getRegistrationDate());
+        return userentity.getDateOfBirth().before(userentity.getRegistrationDate());
     }
 }
