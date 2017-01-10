@@ -12,16 +12,17 @@ import xyz.codingmentor.beanvalidationhw.beans.Device;
 import xyz.codingmentor.beanvalidationhw.beans.UserEntity;
 
 public class Main {
+
     public static void main(String[] args) {
         
-        List<UserEntity> listOfUsers;
-        List<Device> listOfDevices;
+        List<UserEntity> listOfUsers = null;
+        List<Device> listOfDevices = null;
         ObjectMapper mapper = new ObjectMapper();
         JavaType userType = mapper.getTypeFactory().constructCollectionType(List.class, UserEntity.class);
         JavaType deviceType = mapper.getTypeFactory().constructCollectionType(List.class, Device.class);
 
         try {
-            listOfDevices = mapper.readValue(new File("devices.json"), deviceType);
+            listOfDevices = mapper.readValue(new File("device.json"), deviceType);
             listOfUsers = mapper.readValue(new File("users.json"), userType);
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

@@ -32,7 +32,7 @@ public class UserDB {
         return users.containsKey(user) && pw.equals(users.get(user).getPassword());
     }
     
-    public UserEntity editUser(UserEntity user) {
+    public UserEntity modUser(UserEntity user) {
         if (users.containsKey(user.getUsername())) {
             user.setLastModifiedDate(new Date());
             users.replace(user.getUsername(), user);
