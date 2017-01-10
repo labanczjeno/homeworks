@@ -6,20 +6,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import xyz.codingmentor.beanvalidationhw.exceptions.DeviceExistException;
+import xyz.codingmentor.beanvalidationhw.exceptions.DeviceNotExistException;
 
 public class DeviceDB {
     private final Map<String, Device> devices = new HashMap<>();
     
     public Device addDevice(Device device) {
+        if (!devices.containsKey(device.getId())) {
             device.setId(UUID.randomUUID().toString());
             device.setCount(0);
             devices.put(device.getId(), device);
             return devices.get(device.getId());
+        }
+        throw new DeviceExistException(device.getId());
     }
 
     public Device modDevice(Device device) {
+        if (devices.containsKey(device.getId())) {
             devices.replace(device.getId(), device);
             return devices.get(device.getId());
+        }
+        throw new DeviceNotExistException(device.getId());
     }
     
     public Device getDevice(String id) {
