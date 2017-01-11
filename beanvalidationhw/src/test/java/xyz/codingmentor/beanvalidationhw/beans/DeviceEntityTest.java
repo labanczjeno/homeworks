@@ -1,5 +1,5 @@
 
-package xyz.codingmentor.beanvalidationhw.Teste;
+package xyz.codingmentor.beanvalidationhw.beans;
 
 import java.util.Set;
 import javax.validation.Validation;
@@ -8,14 +8,11 @@ import javax.validation.ValidatorFactory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import xyz.codingmentor.beanvalidationhw.beans.Device;
 import java.util.UUID;
 import javax.validation.ConstraintViolation;
 import org.junit.Assert;
-import xyz.codingmentor.beanvalidationhw.beans.Color;
-import xyz.codingmentor.beanvalidationhw.beans.Manufacturer;
 
-public class DeviceEntityTeste {
+public class DeviceEntityTest {
     private static ValidatorFactory vf;
     private static Validator validator;
     private Device device = new Device.Builder()

@@ -28,7 +28,7 @@ public class Device {
     @NotNull
     @Min(0)
     private Integer count;
-
+    
     private Device(Builder builder) {
         this.id = builder.id;
         this.manufacturer = builder.manufacturer;

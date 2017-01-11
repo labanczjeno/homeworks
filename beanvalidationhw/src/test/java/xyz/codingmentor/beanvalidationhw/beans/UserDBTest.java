@@ -1,5 +1,5 @@
 
-package xyz.codingmentor.beanvalidationhw.Test;
+package xyz.codingmentor.beanvalidationhw.beans;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -9,9 +9,6 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import xyz.codingmentor.beanvalidationhw.beans.Gender;
-import xyz.codingmentor.beanvalidationhw.beans.UserDB;
-import xyz.codingmentor.beanvalidationhw.beans.UserEntity;
 
 public class UserDBTest {
     

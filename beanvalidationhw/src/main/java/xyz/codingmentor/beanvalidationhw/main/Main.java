@@ -13,6 +13,10 @@ import xyz.codingmentor.beanvalidationhw.beans.UserEntity;
 
 public class Main {
 
+    public Main() {
+        //hiding default constructor
+    }
+
     public static void main(String[] args) {
         
         List<UserEntity> listOfUsers = null;

@@ -1,15 +1,11 @@
 
-package xyz.codingmentor.beanvalidationhw.Teste;
+package xyz.codingmentor.beanvalidationhw.beans;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import xyz.codingmentor.beanvalidationhw.beans.Color;
-import xyz.codingmentor.beanvalidationhw.beans.Device;
-import xyz.codingmentor.beanvalidationhw.beans.DeviceDB;
-import xyz.codingmentor.beanvalidationhw.beans.Manufacturer;
 
 public class DeviceDBTest {
     private DeviceDB deviceDB;
@@ -53,7 +49,7 @@ public class DeviceDBTest {
     }
     
     @Test
-    public void testEditDevice() {
+    public void testModDevice() {
         deviceDB.addDevice(device1);
         deviceDB.addDevice(device2);
         device2.setType("5");

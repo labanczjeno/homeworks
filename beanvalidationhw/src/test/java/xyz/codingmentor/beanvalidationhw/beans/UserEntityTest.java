@@ -1,5 +1,5 @@
 
-package xyz.codingmentor.beanvalidationhw.Test;
+package xyz.codingmentor.beanvalidationhw.beans;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -14,8 +14,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import xyz.codingmentor.beanvalidationhw.beans.Gender;
-import xyz.codingmentor.beanvalidationhw.beans.UserEntity;
 
 public class UserEntityTest {
     
