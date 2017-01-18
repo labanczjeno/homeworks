@@ -6,12 +6,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import javax.interceptor.ExcludeClassInterceptors;
+import javax.interceptor.Interceptors;
 import xyz.codingmentor.beanvalidationhw.exceptions.DeviceExistException;
 import xyz.codingmentor.beanvalidationhw.exceptions.DeviceNotExistException;
+import xyz.codingmentor.beanvalidationhw.interceptor.ValidationCheckInterceptor;
 
+@Interceptors(ValidationCheckInterceptor.class)
 public class DeviceDB {
     private final Map<String, Device> devices = new HashMap<>();
     
+    @ExcludeClassInterceptors
     public Device addDevice(Device device) {
         if (!devices.containsKey(device.getId())) {
             device.setId(UUID.randomUUID().toString());

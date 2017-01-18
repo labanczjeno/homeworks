@@ -6,13 +6,18 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.interceptor.ExcludeClassInterceptors;
+import javax.interceptor.Interceptors;
 import xyz.codingmentor.beanvalidationhw.exceptions.UserExistException;
 import xyz.codingmentor.beanvalidationhw.exceptions.UserNotExistException;
+import xyz.codingmentor.beanvalidationhw.interceptor.ValidationCheckInterceptor;
 
+@Interceptors(ValidationCheckInterceptor.class)
 public class UserDB {
     
     private final Map<String, UserEntity> users = new HashMap<>();
     
+    @ExcludeClassInterceptors
     public UserEntity addUser(UserEntity user) {
         if (!users.containsKey(user.getUsername())) {
             Date now = new Date();
