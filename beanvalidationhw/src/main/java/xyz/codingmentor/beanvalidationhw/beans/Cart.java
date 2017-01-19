@@ -17,7 +17,7 @@ public class Cart {
     private static final Logger LOGGER = Logger.getLogger(Cart.class.getName());
     private DeviceDB deviceDB;
     private int price;
-    Map<Device, Integer> devices = new HashMap<>();
+    private Map<Device, Integer> devices = new HashMap<>();
     
     public void addDevice(int count, String id){
         
@@ -50,11 +50,15 @@ public class Cart {
         throw new NotExistsException(device.getId());    
     }
     
+    public int getFullPriceOfCart(){
+        return price;
+    }
+    
     public void buy(){
         
        if (devices!=null) {
         String buyMessage=" ";
-        buyMessage = devices.entrySet().stream().map((entry) ->entry.getValue() + " " + entry.getKey().getManufacturer() + " " + entry.getKey().getType()).reduce(buyMessage, String::concat);
+        buyMessage = devices.entrySet().stream().map(entry ->entry.getValue() + " " + entry.getKey().getManufacturer() + " " + entry.getKey().getType()).reduce(buyMessage, String::concat);
             LOGGER.log(Level.WARNING, buyMessage);
                 devices.clear();
                 price = 0;

@@ -13,16 +13,18 @@ import org.jboss.weld.environment.se.WeldContainer;
 import xyz.codingmentor.beanvalidationhw.beans.Cart;
 import xyz.codingmentor.beanvalidationhw.beans.Device;
 import xyz.codingmentor.beanvalidationhw.beans.DeviceDB;
+import xyz.codingmentor.beanvalidationhw.beans.UserDB;
 import xyz.codingmentor.beanvalidationhw.beans.UserEntity;
 
 public class Main {
     
     private static DeviceDB deviceDB;
+    private static UserDB userDB;
     private static Weld weld;
     private static WeldContainer container;
     
-    public Main() {
-        //hiding default constructor
+    private Main(){
+        //hiding public constructor
     }
     
     public static void main(String[] args) throws IOException{       
@@ -36,19 +38,26 @@ public class Main {
         try {
             listOfDevices = mapper.readValue(new File("device.json"), deviceType);
             listOfUsers = mapper.readValue(new File("users.json"), userType);
+            userDB = container.instance().select(UserDB.class).get();
+                for (UserEntity user : listOfUsers) {
+                    userDB.addUser(user);
+                }
+            deviceDB = container.instance().select(DeviceDB.class).get();
+                for (Device device : listOfDevices) {
+                    deviceDB.addDevice(device);
+                }
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
 
         weld = new Weld();
         container = weld.initialize();
-            Cart cart = container.instance().select(Cart.class).get();
-            List<Device> devices = deviceDB.getDeviceList();
-            Device device = devices.get(0);
-            device.setCount(10);
-            cart.addDevice(2, "HTC");
-            cart.removeDevice(1, "APPLE");
-            cart.buy();
+        Cart cart = container.instance().select(Cart.class).get();
+        cart.addDevice(2, "HTC");
+        cart.removeDevice(1, "APPLE");
+        cart.getFullPriceOfCart();
+        cart.buy();
         weld.shutdown();
     }
 }
