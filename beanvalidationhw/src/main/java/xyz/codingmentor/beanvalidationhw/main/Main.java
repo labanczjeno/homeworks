@@ -39,13 +39,13 @@ public class Main {
             listOfDevices = mapper.readValue(new File("device.json"), deviceType);
             listOfUsers = mapper.readValue(new File("users.json"), userType);
             userDB = container.instance().select(UserDB.class).get();
-                for (UserEntity user : listOfUsers) {
-                    userDB.addUser(user);
-                }
+            for (UserEntity user : listOfUsers) {
+                userDB.addUser(user);
+            }
             deviceDB = container.instance().select(DeviceDB.class).get();
-                for (Device device : listOfDevices) {
-                    deviceDB.addDevice(device);
-                }
+            for (Device device : listOfDevices) {
+                deviceDB.addDevice(device);
+            }
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
