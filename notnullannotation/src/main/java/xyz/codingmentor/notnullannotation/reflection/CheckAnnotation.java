@@ -9,13 +9,14 @@ import java.lang.reflect.Field;
  */
 public class CheckAnnotation {
     
-    public static void checkField(Class<?> clazz){
-        
+    public static void checkField(Class<?> clazz) throws IllegalArgumentException, IllegalAccessException{
         for (Field field:clazz.getDeclaredFields()) {
-            NotNullWithException annotationField=field.getAnnotation(NotNullWithException.class);
-            if (annotationField==null) {
-                throw new FieldCantBeNullException("Field cant be null.");
+            if (field.getDeclaredAnnotations().equals(NotNullWithException.class)) {
+                field.get(field);
+                if (null == field) {
+                    throw new FieldCantBeNullException("field cant be null");
+                }
             }
-        }
-    }   
+        } 
+    }  
 }

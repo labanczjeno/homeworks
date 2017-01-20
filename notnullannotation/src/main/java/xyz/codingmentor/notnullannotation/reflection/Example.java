@@ -11,6 +11,11 @@ public class Example {
     @NotNullWithException
     private int age;
 
+    public Example(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public String getName() {
         return name;
     }
