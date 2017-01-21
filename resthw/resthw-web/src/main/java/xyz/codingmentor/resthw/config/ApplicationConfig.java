@@ -21,7 +21,6 @@ public class ApplicationConfig extends Application{
     
     private void addRestResourceClasses(Set<Class<?>> resources){
         resources.add(xyz.codingmentor.resthw.rest.UserRestService.class);
-        resources.add(xyz.codingmentor.resthw.exception.GeneralExceptionMapper.class);
     }
     
 }

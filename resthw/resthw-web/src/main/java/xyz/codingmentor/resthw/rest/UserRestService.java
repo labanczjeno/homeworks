@@ -28,14 +28,21 @@ public class UserRestService {
     
     private static final Map<String,UserEntity> USERMAP=new HashMap<>();
     
-    //http://localhost:8080/resthw-web/resthw/users
+    /**
+     *
+     * http://localhost:8080/resthw-web/resthw/users
+     */
     
     @GET
     public List<UserEntity> getUsers(){
         return new ArrayList(USERMAP.values());
     }
     
-    //http://localhost:8080/resthw-web/resthw/users
+    /**
+     *
+     * http://localhost:8080/resthw-web/resthw/users
+     * 
+     */
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -45,7 +52,11 @@ public class UserRestService {
         return userEntity;
     }
     
-    //http://localhost:8080/resthw-web/resthw/users/{id}
+    /**
+     *
+     * http://localhost:8080/resthw-web/resthw/users/{id}
+     * 
+     */
     
     @GET
     @Path("/{id}")
@@ -53,7 +64,12 @@ public class UserRestService {
         return USERMAP.get(id);
     }
     
-    //http://localhost:8080/resthw-web/resthw/users/{id}
+    /**
+     *
+     * http://localhost:8080/resthw-web/resthw/users/{id}
+     * 
+     * 
+     */
     
     @PUT
     @Path("/{id}")
@@ -66,8 +82,12 @@ public class UserRestService {
             return USERMAP.get(id);
         }
     }
-    
-    //http://localhost:8080/resthw-web/resthw/users/{id}
+
+    /**
+     * http://localhost:8080/resthw-web/resthw/users/{id}
+     * 
+     * 
+     */
     
     @DELETE
     @Path("/{id}")
