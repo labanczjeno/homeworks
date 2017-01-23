@@ -7,14 +7,10 @@ package xyz.codingmentor.notnullannotation.reflection;
  * @author blazefury
  */
 public class Example {
-    private String name;
     @NotNullWithException
-    private int age;
-
-    public Example(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
+    public String name;
+    @NotNullWithException
+    public String age;
 
     public String getName() {
         return name;
@@ -24,12 +20,14 @@ public class Example {
         this.name = name;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
+    
+    
     
 }
