@@ -7,8 +7,8 @@ package xyz.codingmentor.async.entity;
  */
 public class Book {
     
-    String title;
-    String text;
+    private String title;
+    private String text;
 
     public Book(String title, String text) {
         this.title = title;
