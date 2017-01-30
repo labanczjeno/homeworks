@@ -1,0 +1,72 @@
+[
+  {
+    "manufacturer": "HTC",
+    "type": "phone",
+    "price": 20000,
+    "color": "RED",
+    "count": 10
+  },
+  {
+    "manufacturer": "APPLE",
+    "type": "phone",
+    "price": 100000,
+    "color": "WHITE",
+    "count": 10
+  },
+  {
+    "manufacturer": "ONEPLUS",
+    "type": "phone",
+    "price": 80000,
+    "color": "GREEN",
+    "count": 10
+  },
+  {
+    "manufacturer": "SAMSUNG",
+    "type": "tablet",
+    "price": 100000,
+    "color": "BLUE",
+    "count": 10
+  },
+  {
+    "manufacturer": "ONEPLUS",
+    "type": "phone",
+    "price": 150000,
+    "color": "PURPLE",
+    "count": 10
+  },
+  {
+    "manufacturer": "SAMSUNG",
+    "type": "smart watch",
+    "price": 100000,
+    "color": "RED",
+    "count": 10
+  },
+  {
+    "manufacturer": "SAMSUNG",
+    "type": "micro",
+    "price": 50000,
+    "color": "BLACK",
+    "count": 10
+  },
+  {
+    "manufacturer": "SAMSUNG",
+    "type": "phone",
+    "price": 100000,
+    "color": "PURPLE",
+    "count": 10
+  },
+  {
+    "manufacturer": "HTC",
+    "type": "phone",
+    "price": 100000,
+    "color": "WHITE",
+    "count": 10
+  },
+  {
+    "manufacturer": "APPLE",
+    "type": "tablet",
+    "price": 200000,
+    "color": "BLACK",
+    "count": 10
+  }
+]
