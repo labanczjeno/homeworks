@@ -1,4 +1,4 @@
-package xyz.codingmentor.ejbhw.beans;
+package xyz.codingmentor.ejbhw.services;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,6 +9,7 @@ import java.util.UUID;
 import javax.ejb.Singleton;
 import javax.interceptor.ExcludeClassInterceptors;
 import javax.interceptor.Interceptors;
+import xyz.codingmentor.ejbhw.beans.Device;
 import xyz.codingmentor.ejbhw.exceptions.DeviceExistException;
 import xyz.codingmentor.ejbhw.exceptions.DeviceNotExistException;
 import xyz.codingmentor.ejbhw.interceptor.ValidationCheckInterceptor;

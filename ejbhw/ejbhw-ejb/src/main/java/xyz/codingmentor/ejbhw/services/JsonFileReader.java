@@ -12,8 +12,6 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
 import xyz.codingmentor.ejbhw.beans.Device;
-import xyz.codingmentor.ejbhw.beans.DeviceDB;
-import xyz.codingmentor.ejbhw.beans.UserDB;
 import xyz.codingmentor.ejbhw.beans.UserEntity;
 
 /**

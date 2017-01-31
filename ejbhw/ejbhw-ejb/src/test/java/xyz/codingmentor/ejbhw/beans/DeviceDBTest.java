@@ -1,5 +1,6 @@
 package xyz.codingmentor.ejbhw.beans;
 
+import xyz.codingmentor.ejbhw.services.DeviceDB;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;

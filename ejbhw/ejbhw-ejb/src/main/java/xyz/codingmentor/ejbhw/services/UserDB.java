@@ -1,4 +1,4 @@
-package xyz.codingmentor.ejbhw.beans;
+package xyz.codingmentor.ejbhw.services;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.ejb.Singleton;
 import javax.interceptor.ExcludeClassInterceptors;
 import javax.interceptor.Interceptors;
+import xyz.codingmentor.ejbhw.beans.UserEntity;
 import xyz.codingmentor.ejbhw.exceptions.UserExistException;
 import xyz.codingmentor.ejbhw.exceptions.UserNotExistException;
 import xyz.codingmentor.ejbhw.interceptor.ValidationCheckInterceptor;

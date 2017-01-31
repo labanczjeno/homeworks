@@ -16,7 +16,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import xyz.codingmentor.ejbhw.beans.Device;
-import xyz.codingmentor.ejbhw.beans.DeviceDB;
+import xyz.codingmentor.ejbhw.services.DeviceDB;
 import xyz.codingmentor.ejbhw.beans.UserEntity;
 import xyz.codingmentor.ejbhw.exceptions.DeviceNotExistException;
 

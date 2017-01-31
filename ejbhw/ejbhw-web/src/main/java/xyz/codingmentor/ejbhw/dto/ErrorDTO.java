@@ -7,7 +7,7 @@ package xyz.codingmentor.ejbhw.dto;
  */
 public class ErrorDTO {
     
-    String errorMessage;
+    private String errorMessage;
 
     public ErrorDTO() {
         //empty on purpose

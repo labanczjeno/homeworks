@@ -1,5 +1,6 @@
 package xyz.codingmentor.ejbhw.beans;
 
+import xyz.codingmentor.ejbhw.services.DeviceDB;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ import xyz.codingmentor.ejbhw.exceptions.NotExistsException;
  * @author blazefury
  */
 @Stateful
-public class Cart implements Serializable{
+public class Cart implements Serializable {
 
     private static final Logger LOGGER = Logger.getLogger(Cart.class.getName());
     @Inject
@@ -27,7 +28,7 @@ public class Cart implements Serializable{
     public Cart() {
         //empty on purpose
     }
-    
+
     public Device addDevice(int count, String id) {
 
         Device device = deviceDB.getDevice(id);
@@ -36,8 +37,10 @@ public class Cart implements Serializable{
             device.setCount(device.getCount() - count);
             deviceDB.modDevice(device);
             price += count * device.getPrice();
+            return device;
         }
         throw new CountException(device.getId());
+
     }
 
     public Device removeDevice(int count, String id) {
@@ -55,6 +58,7 @@ public class Cart implements Serializable{
                 deviceDB.modDevice(device);
                 devices.remove(device, count);
             }
+            return device;
         }
         throw new NotExistsException(device.getId());
     }

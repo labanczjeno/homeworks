@@ -1,5 +1,6 @@
 package xyz.codingmentor.ejbhw.beans;
 
+import xyz.codingmentor.ejbhw.services.UserDB;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;

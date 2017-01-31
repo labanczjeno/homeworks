@@ -17,7 +17,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import xyz.codingmentor.ejbhw.beans.UserDB;
+import xyz.codingmentor.ejbhw.services.UserDB;
 import xyz.codingmentor.ejbhw.beans.UserEntity;
 import xyz.codingmentor.ejbhw.exceptions.LoginException;
 import xyz.codingmentor.ejbhw.exceptions.UserExistException;
