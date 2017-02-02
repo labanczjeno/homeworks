@@ -2,10 +2,10 @@ package xyz.codingmentor.jpa.technical.application;
 
 import javax.inject.Inject;
 import xyz.codingmentor.jpa.technical.api.ProductEnum;
-import xyz.codingmentor.jpa.technical.api.RepositoryException;
+import xyz.codingmentor.jpa.technical.exception.RepositoryException;
 import xyz.codingmentor.jpa.technical.entity.Product;
 import xyz.codingmentor.jpa.technical.entity.Technican;
-import xyz.codingmentor.jpa.technical.service.ProductService;
+import xyz.codingmentor.jpa.technical.service.QueryService;
 
 /**
  *
@@ -14,7 +14,7 @@ import xyz.codingmentor.jpa.technical.service.ProductService;
 public class Application {
 
     @Inject
-    private ProductService productService;
+    private QueryService productService;
 
     public Application() {
         //empty on purpose

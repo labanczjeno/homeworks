@@ -1,5 +1,5 @@
 
-package xyz.codingmentor.jpa.technical.api;
+package xyz.codingmentor.jpa.technical.exception;
 
 /**
  *
@@ -8,7 +8,7 @@ package xyz.codingmentor.jpa.technical.api;
 
 
 
-public class RepositoryException extends RuntimeException{
+public class RepositoryException extends Exception{
 
     public RepositoryException(String message) {
         super(message);

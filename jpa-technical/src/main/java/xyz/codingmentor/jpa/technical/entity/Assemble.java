@@ -31,8 +31,8 @@ public class Assemble implements Serializable {
         return id;
     }
 
-    public void setId(AssembleID Id) {
-        this.id = Id;
+    public void setId(AssembleID id) {
+        this.id = id;
     }
 
     public int getQuantity() {
@@ -41,6 +41,14 @@ public class Assemble implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Date getDateOfAssemble() {
+        return dateOfAssemble;
+    }
+
+    public void setDateOfAssemble(Date dateOfAssemble) {
+        this.dateOfAssemble = dateOfAssemble;
     }
 
 }

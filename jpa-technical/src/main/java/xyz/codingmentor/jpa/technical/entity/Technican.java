@@ -43,8 +43,8 @@ public class Technican implements Serializable {
         return id;
     }
 
-    public void setId(int Id) {
-        this.id = Id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

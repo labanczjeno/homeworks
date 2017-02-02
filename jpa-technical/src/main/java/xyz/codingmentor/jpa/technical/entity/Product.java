@@ -59,4 +59,12 @@ public class Product implements Serializable {
         this.assembledByTech = assembledByTech;
     }
 
+    public List<Part> getParts() {
+        return parts;
+    }
+
+    public void setParts(List<Part> parts) {
+        this.parts = parts;
+    }
+
 }
