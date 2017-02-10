@@ -1,0 +1,11 @@
+getCategoryById
+http://localhost:8080/jpaonweb-web/rest/Category/{id}
+
+createCategory
+http://localhost:8080/jpaonweb-web/rest/Category/
+
+updateCategory
+http://localhost:8080/jpaonweb-web/rest/Category/
+
+removeCategory
+http://localhost:8080/jpaonweb-web/rest/Category/{id}

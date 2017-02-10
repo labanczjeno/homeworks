@@ -1,0 +1,14 @@
+getTrailer
+http://localhost:8080/jpaonweb-web/rest/Trailer/{id}
+
+createTrailer
+http://localhost:8080/jpaonweb-web/rest/Trailer/
+
+updateTrailer
+http://localhost:8080/jpaonweb-web/rest/Trailer/
+
+removeTrailer
+http://localhost:8080/jpaonweb-web/rest/Trailer/{id}
+
+selectTrailerByFilm
+http://localhost:8080/jpaonweb-web/rest/Trailer/trailerFilm?titleOfFilm={titleOfFilm}

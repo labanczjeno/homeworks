@@ -1,0 +1,17 @@
+getFilmById
+http://localhost:8080/jpaonweb-web/rest/Film/{id}
+
+createFilm
+http://localhost:8080/jpaonweb-web/rest/Film/
+
+updateFilm
+http://localhost:8080/jpaonweb-web/rest/Film/
+
+deleteFilm
+http://localhost:8080/jpaonweb-web/rest/Film/{id}
+
+selectFilmByCategory
+http://localhost:8080/jpaonweb-web/rest/Film/filmCategory?categoryId={categoryId}
+
+selectFilmByTitle
+http://localhost:8080/jpaonweb-web/rest/Film/filmTitle?title={title}
